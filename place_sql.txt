@@ -1,0 +1,18 @@
+INSERT INTO PLACE
+    (`ID`, `NAME`, `HOST_ID`)
+    VALUES
+        (1001457, '''Docklands Apartment with River Views''', 5507453),
+            (4431977, 'BOUTIQUE STAYS - Somerset Terrace, Pet Friendly', 760849),
+                (5194998, 'BOUTIQUE STAYS - Elwood Beaches 3, Pet Friendly', 760849),
+                    (11762465, '''Fabulous single room''', 20584468),
+                        (13627321, 'Sunny, Modern Apartment with Cityscape Views', 10810140),
+                            (16045624, '''Urban Jungle in the Heart of Melbourne''', 30900122),
+                                (17810814, '''Stylish Bayside Retreat with a Luscious Garden''', 760849),
+                                    (20351923, '''11 - 4608SB · 11*2Bd2Bth Lv46*skyline view*door step to Crown''', 129348781),
+                                        (22002927, 'Junction of CBD,Casino&Yarra River* FREE PARKING', 133472555),
+                                            (22740286, '''FREE PARKING - The Velvet Lux in Melbourne CBD''', 30900122),
+                                                (22868779, '''★ Fresh Fitzroy Pad with City Views! ★''', 21058208),
+                                                    (24195416, '''5 Star Luxury St Kilda Road''', 31634799),
+                                                        (28400921, '''Southbank Top Amazing CityView 2BR Apartment''', 8209200),
+                                                            (28848587, '''[Crown] 2BR/FREE PARKING/HIGH RISE/NETFLIX/DBAE''', 210035490)
+                                                            ;:

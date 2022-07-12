@@ -44,13 +44,13 @@ N원을 거슬러줘야 할 때, 500원으로 거슬러 줄 수 있을 때까지
 - 동전들은 큰 단위가 항상 작은 단위의 배수이므로
 - 작은 단위의 동전들을 종합해 다른 해가 나오는 경우가 없기 때문이다.
 - 예를 들어, 화폐 단위가 500원, 400원, 100원이고 800원을 거슬러주는 상황이라면 그리디 알고리즘으로 문제를 해결할 수 없다.
-```
+```python
 N = 1260
 count = 0
 array = [500, 100, 50, 10]
 
 for coin in array:
-	count += N // coin
+	count += N # coin
 	N %= coin
 ```
 
@@ -73,7 +73,7 @@ for coin in array:
 ## DFS(Depth First Search) - 깊이 우선 탐색
 ## BFS(Breadth-First Search) - 넓이 우선 탐색
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a6026e39-404f-47aa-821c-2974f620df17/dfs_bfs.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a6026e39-404f-47aa-821c-2974f620df17/dfs_bfs.gif)
+    ![https:#s3-us-west-2.amazonaws.com/secure.notion-static.com/a6026e39-404f-47aa-821c-2974f620df17/dfs_bfs.gif](https:#s3-us-west-2.amazonaws.com/secure.notion-static.com/a6026e39-404f-47aa-821c-2974f620df17/dfs_bfs.gif)
 
 1. **DFS**
 
@@ -184,7 +184,7 @@ A가 B의 부모노드일 때, A의 키 값과 B의 키 값 사이에는 대소 
 : 모든 부모 노드는 해당 자식 노드보다 값이 작은 이진트리 구조다.
 
 - 사용 방법
-```
+```python
 import heapq 
 #  빈 리스트 생성 후 원소 추가
 heap = []
@@ -215,30 +215,28 @@ result = heap[0]
 그런데 만약 어떤 톨게이트에서 고객 감사 행사로 톨비 100원을 받는 대신에 100원을 준다고 하면? 그리고 이 톨게이트에서 나오자마자 다시 돌아가서 계속 반복으로 이 돈을 받을수 있다면? 그렇다면 이 톨게이트를 뺑글 뺑글 도는것 만으로도 무한으로 돈을 받을 수 있을 것이고 톨비는 계속 줄어들 것이다. 이게 바로 음수의 사이클이다. 이런 사이클이 있으면 벨먼-포드 알고리즘은 무한의 루프에 빠지게 되고, 최저 비용 거리를 구할 수 없게 된다. 물론 벨먼-포드 알고리즘을 실행했을 때 음수의 사이클이 있는지 없는지도 확인할 수 있으므로 알고리즘 자체의 본질적인 문제는 아니다. 아래 의사코드에서 마지막 for문에서 확인하는 것이 음수 사이클이 있는지 확인하는 것이다. 만약 음수 사이클이 있다면, 사이클을 한번 돌 때마다 간선이 완화가 된다. 그래서 맨 마지막 for문에서 간선을 V-1번씩 확인했음에도 불구하고 완화할 수 있는 엣지가 있다면 음수 사이클이 있다고 판단할 수 있다.
 
 
-
-
-```
+```python
 BellmanFord(G,w,s):
-    //초기화 과정
-    for each u in G.V:     //노드를 초기화 하기
-        distance[v] = inf      //모든 노드의 최단거리를 무한으로 지정
-        parent[v] = null       //모든 노드의 부모 노드를 널값으로 지정
+    #초기화 과정
+    for each u in G.V:     #노드를 초기화 하기
+        distance[v] = inf      #모든 노드의 최단거리를 무한으로 지정
+        parent[v] = null       #모든 노드의 부모 노드를 널값으로 지정
 
-    distance[s] = 0 //출발점의 최단거리는 0으로 지정한다
+    distance[s] = 0 #출발점의 최단거리는 0으로 지정한다
 
-    //거리측정 과정
-    for i from 1 to len(G.V):   //노드 개수만큼 n-1 번 반복
-        for each (u,v) in G.E:   //모든 간선을 체크해 최단 거리를 찾아본다.
+    #거리측정 과정
+    for i from 1 to len(G.V):   #노드 개수만큼 n-1 번 반복
+        for each (u,v) in G.E:   #모든 간선을 체크해 최단 거리를 찾아본다.
             if distance[u] + w[(u,v)] < distance[v]:   
-            //만약 u를 경유하여 v로 가는 거리가 현재 v의 최단 거리보다 짧으면
-                distance[v] = distance[u] + w[(u,v)]  //그 거리를 v의 최단거리로 지정
-                parent[v] = u   //u를 v의 부모 노드로 지정
+            #만약 u를 경유하여 v로 가는 거리가 현재 v의 최단 거리보다 짧으면
+                distance[v] = distance[u] + w[(u,v)]  #그 거리를 v의 최단거리로 지정
+                parent[v] = u   #u를 v의 부모 노드로 지정
 
-    //음수 사이클 체크 과정
-    //: 모든 간산 e개 하나씩 확인해서 거쳐서 가는게 더 짧을 경우 (최단 거리 테이블 업데이트될 경우) 음수 간선 순환 존재하는것
+    #음수 사이클 체크 과정
+    #: 모든 간산 e개 하나씩 확인해서 거쳐서 가는게 더 짧을 경우 (최단 거리 테이블 업데이트될 경우) 음수 간선 순환 존재하는것
     for each (u,v) in G.E:
         if distance[u] + w[(u,v)] < distance[v]:
-            return false //음수 사이클을 확인하고 알고리즘을 정지
+            return false #음수 사이클을 확인하고 알고리즘을 정지
 
     return distance[], parent[]
 ```
@@ -278,7 +276,7 @@ BellmanFord(G,w,s):
 : 각 노드가 최대 두 개의 자식을 갖는 트리
 - 이진트리 ⊂ 트리
 - depth 구하는 연산 : 해당 노드가 몇 번째 level(depth) 갖는지 알 수 있다.
-```
+```python
 class Node:
 
     def __init__(self, item):
@@ -317,7 +315,8 @@ class BinaryTree:
     - 전위 순회
     - 후위 순회
 <img src="./img/이진트리순회.jpeg" width=900 />
-```
+
+```python
 class Node:
     def __init__(self, item):
         self.data = item

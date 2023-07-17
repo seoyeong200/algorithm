@@ -1,0 +1,25 @@
+
+# Type : Subject
+#    Type
+#        - feat : add new features
+#        - fix : fix bug
+#        - build : change file about building
+#        - ci : change config about ci
+#        - docs : documentation create/update/delete
+#        - style : code format, add semicolon etc (no change in business logic)
+#        - refactor : code refactoring
+#        - test : test code create/update/delete (no change in business logic)
+#        - chore : etc
+#    Subject
+#        : Subject of commit
+
+# Body 
+#    Body
+#        : specific text of commit
+
+# Footer
+#   Footer
+#        : optional
+#        : for tracking issue 
+#            - solve : #solved issue ID
+#            - ref : #refered issue ID
